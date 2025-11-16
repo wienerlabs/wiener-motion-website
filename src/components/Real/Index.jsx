@@ -4,9 +4,6 @@ import img2 from '../../assets/images/15.png'
 import img3 from '../../assets/images/16.png'
 import img4 from '../../assets/images/17.png'
 import img5 from '../../assets/images/18.png'
-import icon1 from '../../assets/images/icon1.png';
-import icon2 from '../../assets/images/icon2.png';
-import icon3 from '../../assets/images/icon3.png';
 import img6 from '../../assets/images/19.png'
 import img7 from '../../assets/images/20.png'
 import img8 from '../../assets/images/21.png'
@@ -146,20 +143,10 @@ function Real() {
             </div>
             
             {/* 3rd slide */}
-            <div 
-                className="slide w-full h-screen flex sm:flex items-center justify-center 
+            <div
+                className="slide w-full h-screen flex sm:flex items-center justify-center
                 flex-shrink-0  relative"
             >
-                <div 
-                    className="image absolute w-[20vh] h-[20vh] sm:w-[45vh] sm:h-[45vh]  
-                    sm:top-20 sm:-translate-x-1/5 bottom-[20vh] right-[20vh]
-                    sm:-translate-y-1/2 sm:right-1/6"
-                >
-                    <img 
-                        src={icon2}
-                        className="w-full h-full object-contain rounded-full"
-                    />
-                </div>
                 <div className='w-[60%] text-center font-[SansitaReg] relative'>
                     <h3
                         className='font-[Sansita] sm:w-1/3 text-left font-semibold tracking-tight
@@ -175,25 +162,6 @@ function Real() {
                     <h3 className='text-[3.5vh] whitespace-nowrap sm:text-[6vh] font-semibold sm:leading-[6vh]'>
                         Completed Projects
                     </h3>
-                </div>
-                <div 
-                    className="image absolute w-[30vh] sm:w-[60vh] sm:h-[60vh] bottom-10 right-2/4 
-                    translate-y-1/3 -translate-x-1/5"
-                >
-                    <img 
-                        src={icon1}
-                        className="w-full h-full object-contain rounded-full"
-                    />
-                </div>
-                <div 
-                    className="hidden sm:inline-block image absolute w-[20vh] sm:w-[50vh] sm:h-[50vh] top-1/2 -translate-y-1/4 translate-x-1/3
-                    right-0 "
-                >
-                    <img 
-                        src={icon3}
-                        className="w-full h-full object-contain rounded-full"
-                    />
-
                 </div>
             </div>
 
