@@ -6,13 +6,13 @@ import Button from  '../Button'
 function Footer() {
   return (
     <div className="section w-full sm:mt-30 ">
-      <div className="topfoot  bg-[#f5f19c] pt-16 pb-16 sm:flex items-center justify-between">
+      <div className="topfoot  bg-[#cdf52a] pt-16 pb-16 sm:flex items-center justify-between">
         <div className="left sm:w-1/2 px-8 sm:px-8  ">
           <div className="first order-1 font-[SansitaReg]  text-[6vh] leading-[7vh] sm:text-[4.2rem] w-1/3 sm:leading-[5rem] sm:mb-10 ">
-            <h1>Discover Significo.</h1>
+            <h1>Discover Lich.</h1>
           </div>
           {/* <Bu/> */}
-          <div className='middle order-3 sm:order-2 w-[20vh] text-center mt-6 px-4 py-4 sm:w-fit sm:px-4 sm:py-[1.6vh] bg-[--black] text-[#f5f19c] whitespace-nowrap'>
+          <div className='middle order-3 sm:order-2 w-[20vh] text-center mt-6 px-4 py-4 sm:w-fit sm:px-4 sm:py-[1.6vh] bg-[--black] text-[#cdf52a] whitespace-nowrap'>
             <div 
               className= {`${styles.masker} flex items-center 
               gap-2 overflow-hidden 
@@ -63,14 +63,14 @@ function Footer() {
       <div className="downfoot w-full h-fit bg-[var(--black)] px-8 py-10 sm:py-32">
         <div className='flex sm:flex-row sm:items-start justify-between space-y-4 sm:space-y-0 sm:space-x-4'>
           <div className=' hidden sm:inline-block '>
-            {["Home", "Solutions", "About", "Team", "Contact"].map((item, index) => {
+            {["Home", "Services", "About", "Team", "Contact"].map((item, index) => {
               return (
                 <div key={index} className='pb-4'>
                   <h3 className='font-[SansitaReg] text-[2.5vh] text-white font-semibold'>
                     {item}
-                  </h3>  
+                  </h3>
                 </div>
-              ) 
+              )
             })}
           </div>
           <div className=''>
@@ -81,20 +81,20 @@ function Footer() {
                 placeholder="Enter your email address" 
                 className="bg-[var(--light)] w-full sm:w-[350px] h-[5.9vh] px-4 text-[2vh]"
               />
-              <Button text="SUBSCRIBE" bgColor="bg-[#f5f19c]" />
+              <Button text="SUBSCRIBE" bgColor="bg-[#cdf52a]" />
             </div>
           </div>
           <div className=' hidden sm:inline-block '>
-            {["Insights", "Newsroom", "Resources", "Careers", "Contact"].map((item, index) => {
+            {["Projects", "Newsroom", "Resources", "Careers", "Contact"].map((item, index) => {
               return (
                 <div key={index} className='pb-4'>
                   <h3 className='font-[SansitaReg] text-[2.5vh] text-white font-semibold'>
                     {item}
-                  </h3>  
+                  </h3>
                 </div>
-              ) 
+              )
             })}
-          </div>  
+          </div>
         </div>
       </div>
     </div>

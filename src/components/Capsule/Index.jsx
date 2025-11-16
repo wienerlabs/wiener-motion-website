@@ -38,14 +38,14 @@ gsap.registerPlugin(ScrollTrigger);
     >
         <div className="left sm:w-1/3 h-full flex flex-col sm:justify-between py-10 items-start " >
             <h1 className="w-2/3 font-[Sansita] text-[2.8vh] leading-[4vh] font-medium">
-                Stay up-to-date on the
-                latest healthcare
-                innovations and thought
-                leadership.
+                Discover our cutting-edge
+                blockchain and tokenization
+                solutions across DeFi,
+                infrastructure, and AI.
             </h1>
             <div className="heading">
-                <h1 className="font-[SansitaReg] text-[5vh] leading-[6.5vh] sm:text-[8vh] py-5 sm:leading-[9vh]">Explore <br/> Our Insights</h1>
-                <Button bgColor="bg-[#f5f19c]" text="VIEW ALL ARTICLES" />
+                <h1 className="font-[SansitaReg] text-[5vh] leading-[6.5vh] sm:text-[8vh] py-5 sm:leading-[9vh]">Explore <br/> Our Projects</h1>
+                <Button bgColor="bg-[#cdf52a]" text="VIEW ALL PROJECTS" />
             </div>
         </div>
         <div className=" right font-[SansitaReg] mt-10 sm:w-2/3 space-y-10 h-full sm:flex items-start justify-start sm:gap-20  ">
@@ -57,9 +57,8 @@ gsap.registerPlugin(ScrollTrigger);
                     <img className="h-full w-full object-cover" src={cap1} />
                 </div>
                 <div className="text text-center text-[6vw] sm:text-[3.2vh] font-semibold mt-10 leading-[4.8vh]">
-                    <h3>Equity in Tech: An <br/>
-                        Internation Women&apos;s <br/> Day Conversation Wi <br/>Caroline 
-                        Nieto, <br/> Significo&apos;s CPO
+                    <h3>The Lich Arbitrage: <br/>
+                        Advanced DeFi Trading <br/> System on Solana <br/>with High-Speed <br/> Arbitrage Execution
                     </h3>
                 </div>
                 <button className="bg-[#e9bbff] text-black px-4 rounded-full text-medium py-3 mb-10 mt-10 font-semibold">Thought Leadership</button>

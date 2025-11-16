@@ -8,21 +8,29 @@ import img6 from '../assets/images/team6.png';
 import img7 from '../assets/images/team7.png';
 import img8 from '../assets/images/team8.png';
 import img9 from '../assets/images/team9.png';
+import img10 from '../assets/images/team10.png';
+import img11 from '../assets/images/team11.png';
+import img12 from '../assets/images/team12.png';
+import img13 from '../assets/images/team13.png';
 
 import {useEffect} from 'react';
 import { gsap } from "gsap";
 import { Power4} from 'gsap/gsap-core';
 
 const data = [
-    {key: 1, title: "Dr. Rick McCartney", role: "CEO", img: img1},
-    {key: 2, title: "Chris Koha", role: "COO", img: img2},
-    {key: 3, title: "Caroline Nieto", role: "Chief Product Officer", img: img3},
-    {key: 4, title: "Victor Albertos", role: "CTO", img: img4},
-    {key: 5, title: "Dr. Jana Hapfelmeier", role: "Chief Innovation Officer", img: img5},
-    {key: 6, title: "Michael Robin", role: "VP of Marketing", img: img6},
-    {key: 7, title: "Adrian Rubio", role: "VP of Engineering", img: img7},
-    {key: 8, title: "Cy Serrano", role: "VP of Product", img: img8},
-    {key: 9, title: "Lenya McGrath", role: "VP of Partnerships", img: img9},
+    {key: 1, title: "Baturalp Güvenç", role: "Co-Founder & CEO", img: img1},
+    {key: 2, title: "Mehmet Hayırlı", role: "Co-Founder & CTO", img: img2},
+    {key: 3, title: "Samet Özetçi", role: "Co-Founder & COO", img: img3},
+    {key: 4, title: "Emir Bilal Özkan", role: "Co-Founder & CFO", img: img4},
+    {key: 5, title: "Muhammed Akıncı", role: "Lead Backend & AI Developer", img: img5},
+    {key: 6, title: "Yiğit Balaban", role: "DevOps & Backend Engineer", img: img6},
+    {key: 7, title: "Abdullah Velisoy", role: "Fullstack Developer", img: img7},
+    {key: 8, title: "Osman Nuri Yıldız", role: "Blockchain Developer", img: img8},
+    {key: 9, title: "Nihat Alp Onaran", role: "Security Auditor", img: img9},
+    {key: 10, title: "Cemalettin Kurşun", role: "AI Researcher", img: img10},
+    {key: 11, title: "Oğuz Kaan Demir", role: "Frontend Developer", img: img11},
+    {key: 12, title: "Salih Eryılmaz", role: "Product Manager", img: img12},
+    {key: 13, title: "Yunus Emre Yoldaş", role: "Firmware Developer", img: img13},
 ]
 
 
@@ -97,7 +105,7 @@ function List() {
             >
               <img src={item.img} className='w-[100%] h-[100%] object-contain' />
             </div>
-            <div className="hidden sm:inline-block bluelayer sm:absolute top-0 left-0 z-[2] w-full h-0 bg-[#f5f19c]"></div>
+            <div className="hidden sm:inline-block bluelayer sm:absolute top-0 left-0 z-[2] w-full h-0 bg-[#cdf52a]"></div>
           </div>
         )
       })}

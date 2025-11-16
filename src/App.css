@@ -1,10 +1,8 @@
 :root {
-    --salmon: #EF9D71;
+    --lime: #cdf52a;
     --black: #000;
     --light: #fff;
-    --cyan:  #aedee0;
-    --dcyan: #141b1b;
-    --dsalmon: #1e130e;
+    --dlime: #1a1f0a;
 }
 
 
@@ -13,13 +11,14 @@ body {
 }
 
 *::selection {
-    background-color: var(--salmon);
+    background-color: var(--lime);
+    color: var(--black);
 }
 
 
 body[theme="black"] {
     background-color: var(--black);
-    
+
 }
 
 body[theme="black"] .section {
@@ -27,28 +26,37 @@ body[theme="black"] .section {
 }
 body[theme="white"] {
     background-color: var(--light);
-    
+
 }
 
 body[theme="white"] .section {
     color: var(--black);
 }
 
+body[theme="lime"] {
+    background-color: var(--lime);
+
+}
+
+body[theme="lime"] .section {
+    color: var(--dlime);
+}
+
 body[theme="cyan"] {
-    background-color: var(--cyan);
-    
+    background-color: var(--lime);
+
 }
 
 body[theme="cyan"] .section {
-    color: var(--dcyan);
+    color: var(--dlime);
 }
 
 body[theme="salmon"] {
-    background-color: var(--salmon);  
+    background-color: var(--lime);
 }
 
 body[theme="salmon"] .section {
-    color: var(--dsalmon);
+    color: var(--dlime);
 }
 
 @font-face {
