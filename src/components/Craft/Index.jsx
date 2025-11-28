@@ -82,9 +82,10 @@ function Craft() {
 
    
   return (
-    <div 
-        data-color="cyan" 
-        className="craft section w-full sm:flex gap-x-40 justify-between 
+    <div
+        id="services"
+        data-color="cyan"
+        className="craft section w-full sm:flex gap-x-40 justify-between
           items-center px-8 py-8 sm:px-10 relative "
     >
         <div className="ltext sm:sticky sm:top-[10%] left-0 sm:w-1/2 ">
@@ -92,7 +93,7 @@ function Craft() {
                 className="ptag font-[Sansita] text-[2.6vh] sm:text-[2.9vh]
                 font-medium leading-[4.4vh] sm:leading-[4.2vh] "
             >
-                Lich is a Web3-centered RWA tokenization platform founded on the belief
+                Wiener Labs is a Web3-centered RWA tokenization platform founded on the belief
                 that blockchain technology can democratize global capital access. We maximize
                 institutional liquidity by transforming traditional assets into digital tokens,
                 enabling fractional ownership, 24/7 trading, and smart contract automation.

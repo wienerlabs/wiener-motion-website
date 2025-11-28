@@ -40,9 +40,10 @@ function Real() {
 
 
   return (
-    <div  
-        data-color="salmon" 
-        ref={container} 
+    <div
+        id="about"
+        data-color="salmon"
+        ref={container}
         className="real section sm:w-full  px-8 sm:px-8 mt-32"
     >
       <div 
@@ -103,7 +104,7 @@ function Real() {
                     >
                         We’re on a mission to impact as many lives as possible and build a better company while we do it. Here’s our progress.
                     </h3>
-                    <h1 className=' font-semibold text-[10vh] sm:text-[20vh] leading-none text-white '>
+                    <h1 className=' font-semibold text-[10vh] sm:text-[20vh] leading-none text-black '>
                         $28M
                     </h1>
                     <h3 className=' text-[2vh] sm:text-[5vh] font-semibold sm:leading-[7vh]'>
@@ -156,7 +157,7 @@ function Real() {
                     >
                         Our team of 16 senior developers and fintech experts accelerates innovation across blockchain and Web3.
                     </h3>
-                    <h1 className=' font-semibold text-[10vh] sm:text-[20vh] leading-none text-white'>
+                    <h1 className=' font-semibold text-[10vh] sm:text-[20vh] leading-none text-black'>
                         62
                     </h1>
                     <h3 className='text-[3.5vh] whitespace-nowrap sm:text-[6vh] font-semibold sm:leading-[6vh]'>
@@ -180,7 +181,7 @@ function Real() {
                     />
                 </div>
                 <div className='w-[60%] text-center font-[SansitaReg] relative'>
-                    <h1 className=' font-semibold text-[10vh] sm:text-[20vh] leading-none text-white'>
+                    <h1 className=' font-semibold text-[10vh] sm:text-[20vh] leading-none text-black'>
                         87
                     </h1>
                     <h3 className='text-[3.1vh] leading-[3.4vh] sm:text-[6vh] font-semibold sm:leading-[8vh]'>

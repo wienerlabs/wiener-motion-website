@@ -36,7 +36,7 @@ function Para2() {
             <div className='hidden w-[40%] sm:flex items-center justify-center mb-12'>
                 <hr className='bg-zinc-400 w-[20%] h-[.3vh]' />
             </div>    
-            <h3 className='textpara2 sm:w-[40%] text-purple-600 font-[Sansita] text-[2.4vh] sm:text-[3.5vh] font-medium text-center tracking-wide leading-[5vh] mb-10'> Lich&apos;s tokenization infrastructure has revolutionized how we manage construction project financing. Their platform enabled us to tokenize our development pipeline, attracting institutional investors globally while maintaining regulatory compliance. The fractional ownership model democratized access to our projects, and the smart contract-based dividend distribution automated our entire payment workflow. This is the future of real estate finance.</h3>
+            <h3 className='textpara2 sm:w-[40%] text-[#3d3a2f] font-[Sansita] text-[2.4vh] sm:text-[3.5vh] font-medium text-center tracking-wide leading-[5vh] mb-10'> Wiener Labs&apos; tokenization infrastructure has revolutionized how we manage construction project financing. Their platform enabled us to tokenize our development pipeline, attracting institutional investors globally while maintaining regulatory compliance. The fractional ownership model democratized access to our projects, and the smart contract-based dividend distribution automated our entire payment workflow. This is the future of real estate finance.</h3>
             <div className="pers w-[40%] flex flex-col items-center justify-center gap-2">
                 <div className="image w-24 h-24 overflow-hidden rounded-full ">
                     <img src={img1} />

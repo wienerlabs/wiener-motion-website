@@ -105,14 +105,29 @@ function Home() {
             >
                 <div className="w-full flex sm:flex items-center justify-between  ">
                     <div className="logo w-[12vh] h-[12vh] sm:w-[16vh] sm:h-[10vh] cursor-pointer z-[9] flex items-center">
-                        <h1 className="font-[SansitaBold] text-[5vh] sm:text-[6vh] tracking-tight">LICH</h1>
+                        <h1 className="font-[SansitaBold] text-[5vh] sm:text-[6vh] tracking-tight">WIENER</h1>
                     </div>
                     <div className="hidden md:flex gap-2 items-center z-[9] cursor-pointer ">
-                        {["Services", "About", "Projects", "Team", "Contact"].map((item, index) => (
-                            <h4 key={index} className={`${styles.links} h-[3vh] relative py[2.4vh] px-[2.2vh] text-center  flex flex-col
-                            font-[Sansita] text-[2.1vh] overflow-hidden font-medium leading-[2.5vh]`}>
-                                <a className={`atag ${styles.atag} relative`}>{item} </a>
-                                <a className={`atag ${styles.atag} relative`}>{item} </a>
+                        {[
+                            { name: "Services", target: "services" },
+                            { name: "About", target: "about" },
+                            { name: "Projects", target: "projects" },
+                            { name: "Team", target: "team" },
+                            { name: "Contact", target: "contact" }
+                        ].map((item, index) => (
+                            <h4
+                                key={index}
+                                onClick={() => {
+                                    const element = document.getElementById(item.target);
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+                                className={`${styles.links} h-[3vh] relative py[2.4vh] px-[2.2vh] text-center flex flex-col
+                                font-[Sansita] text-[2.1vh] overflow-hidden font-medium leading-[2.5vh]`}
+                            >
+                                <a className={`atag ${styles.atag} relative`}>{item.name} </a>
+                                <a className={`atag ${styles.atag} relative`}>{item.name} </a>
                             </h4>
                         ))}
                     </div>
