@@ -63,9 +63,9 @@ function TeamFullPage({ onClose }) {
                     </div>
                     <div className="bg-[#fef3dc] px-8 py-12">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                            <div><h3 className="font-[SansitaBold] text-4xl sm:text-5xl mb-2">13</h3><p className="font-[Sansita] text-lg text-gray-700">Team Members</p></div>
+                            <div><h3 className="font-[SansitaBold] text-4xl sm:text-5xl mb-2">20+</h3><p className="font-[Sansita] text-lg text-gray-700">Team Members</p></div>
                             <div><h3 className="font-[SansitaBold] text-4xl sm:text-5xl mb-2">4</h3><p className="font-[Sansita] text-lg text-gray-700">Co-Founders</p></div>
-                            <div><h3 className="font-[SansitaBold] text-4xl sm:text-5xl mb-2">16+</h3><p className="font-[Sansita] text-lg text-gray-700">Years Exp.</p></div>
+                            <div><h3 className="font-[SansitaBold] text-4xl sm:text-5xl mb-2">8</h3><p className="font-[Sansita] text-lg text-gray-700">Years Exp.</p></div>
                             <div><h3 className="font-[SansitaBold] text-4xl sm:text-5xl mb-2">87</h3><p className="font-[Sansita] text-lg text-gray-700">Projects</p></div>
                         </div>
                     </div>

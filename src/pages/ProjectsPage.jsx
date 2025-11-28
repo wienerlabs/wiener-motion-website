@@ -95,23 +95,29 @@ function ProjectsPage() {
 
             {/* Projects Grid */}
             <div className="max-w-7xl mx-auto px-8">
+                <p className="font-[Sansita] text-gray-600 mb-6 text-center">
+                    Showing {filteredProjects.length} projects
+                </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project) => (
                         <div
                             key={project.id}
                             onClick={() => setSelectedProject(project)}
-                            className="project-card bg-white rounded-2xl overflow-hidden border-2 border-black 
+                            className="project-card bg-white rounded-2xl overflow-hidden border-2 border-black
                                 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group"
                         >
                             <div className="relative h-56 overflow-hidden">
-                                <img 
-                                    src={project.image} 
+                                <img
+                                    src={project.image}
                                     alt={project.title}
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute top-4 left-4">
                                     <span className={`font-[Sansita] px-3 py-1 rounded-full text-sm
-                                        ${project.status === 'Active' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-black'}`}>
+                                        ${project.status === 'Launched' || project.status === 'Completed' ? 'bg-green-500 text-white' :
+                                          project.status === 'Testnet' || project.status === 'Demo' ? 'bg-blue-500 text-white' :
+                                          project.status === 'Active' ? 'bg-emerald-500 text-white' :
+                                          'bg-yellow-500 text-black'}`}>
                                         {project.status}
                                     </span>
                                 </div>
@@ -120,26 +126,59 @@ function ProjectsPage() {
                                         {project.category}
                                     </span>
                                 </div>
+                                {project.progress !== undefined && (
+                                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 px-4 py-2">
+                                        <div className="flex items-center gap-2">
+                                            <div className="flex-1 h-2 bg-gray-600 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full bg-[#fef3dc] rounded-full transition-all duration-500"
+                                                    style={{ width: `${project.progress}%` }}
+                                                />
+                                            </div>
+                                            <span className="font-[Sansita] text-white text-xs">{project.progress}%</span>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                             <div className="p-6">
-                                <h3 className="font-[SansitaBold] text-2xl mb-2">{project.title}</h3>
+                                <h3 className="font-[SansitaBold] text-xl mb-2 line-clamp-1">{project.title}</h3>
                                 <p className="font-[Sansita] text-gray-600 text-sm mb-4 line-clamp-2">
                                     {project.subtitle}
                                 </p>
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tech.slice(0, 3).map((t, i) => (
-                                        <span key={i} className="font-[Sansita] text-xs px-2 py-1 bg-gray-100 rounded">
-                                            {t}
-                                        </span>
-                                    ))}
-                                </div>
+                                {project.tech && (
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {project.tech.slice(0, 3).map((t, i) => (
+                                            <span key={i} className="font-[Sansita] text-xs px-2 py-1 bg-gray-100 rounded">
+                                                {t}
+                                            </span>
+                                        ))}
+                                        {project.tech.length > 3 && (
+                                            <span className="font-[Sansita] text-xs px-2 py-1 bg-gray-100 rounded">
+                                                +{project.tech.length - 3}
+                                            </span>
+                                        )}
+                                    </div>
+                                )}
                                 <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-                                    {Object.entries(project.metrics).slice(0, 2).map(([key, value], i) => (
-                                        <div key={i} className="text-center">
-                                            <p className="font-[SansitaBold] text-lg">{value}</p>
-                                            <p className="font-[Sansita] text-xs text-gray-500 capitalize">{key}</p>
-                                        </div>
-                                    ))}
+                                    {project.metrics ? (
+                                        Object.entries(project.metrics).slice(0, 2).map(([key, value], i) => (
+                                            <div key={i} className="text-center">
+                                                <p className="font-[SansitaBold] text-lg">{value}</p>
+                                                <p className="font-[Sansita] text-xs text-gray-500 capitalize">{key}</p>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <>
+                                            <div className="text-center">
+                                                <p className="font-[SansitaBold] text-sm">{project.budget || 'TBD'}</p>
+                                                <p className="font-[Sansita] text-xs text-gray-500">Budget</p>
+                                            </div>
+                                            <div className="text-center">
+                                                <p className="font-[SansitaBold] text-sm">{project.duration || 'TBD'}</p>
+                                                <p className="font-[Sansita] text-xs text-gray-500">Duration</p>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -206,14 +245,25 @@ function ProjectModal({ project, onClose }) {
                         <span className="text-2xl">×</span>
                     </button>
                     <div className="absolute bottom-6 left-6 right-6">
-                        <div className="flex gap-3 mb-3">
+                        <div className="flex flex-wrap gap-3 mb-3">
                             <span className={`font-[Sansita] px-3 py-1 rounded-full text-sm
-                                ${project.status === 'Active' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-black'}`}>
+                                ${project.status === 'Launched' || project.status === 'Completed' ? 'bg-green-500 text-white' :
+                                  project.status === 'Testnet' || project.status === 'Demo' ? 'bg-blue-500 text-white' :
+                                  project.status === 'Active' ? 'bg-emerald-500 text-white' :
+                                  'bg-yellow-500 text-black'}`}>
                                 {project.status}
                             </span>
                             <span className="font-[Sansita] px-3 py-1 rounded-full text-sm bg-[#fef3dc] text-black">
                                 {project.category}
                             </span>
+                            {project.priority && (
+                                <span className={`font-[Sansita] px-3 py-1 rounded-full text-sm
+                                    ${project.priority === 'S' ? 'bg-purple-500 text-white' :
+                                      project.priority === 'A' ? 'bg-red-500 text-white' :
+                                      'bg-orange-500 text-white'}`}>
+                                    Priority: {project.priority}
+                                </span>
+                            )}
                         </div>
                         <h2 className="font-[SansitaBold] text-3xl sm:text-4xl text-white">{project.title}</h2>
                     </div>
@@ -224,46 +274,127 @@ function ProjectModal({ project, onClose }) {
                     <p className="font-[Sansita] text-xl text-gray-700 mb-6">{project.subtitle}</p>
                     <p className="font-[Sansita] text-gray-600 mb-8 leading-relaxed">{project.description}</p>
 
-                    {/* Metrics */}
-                    <div className="grid grid-cols-3 gap-4 mb-8">
-                        {Object.entries(project.metrics).map(([key, value], i) => (
-                            <div key={i} className="bg-[#fef3dc] p-4 rounded-xl text-center border-2 border-black">
-                                <p className="font-[SansitaBold] text-2xl">{value}</p>
-                                <p className="font-[Sansita] text-sm text-gray-600 capitalize">{key}</p>
+                    {/* Progress Bar */}
+                    {project.progress !== undefined && (
+                        <div className="mb-8">
+                            <div className="flex justify-between mb-2">
+                                <span className="font-[SansitaBold] text-lg">Progress</span>
+                                <span className="font-[SansitaBold] text-lg">{project.progress}%</span>
                             </div>
-                        ))}
-                    </div>
+                            <div className="h-4 bg-gray-200 rounded-full overflow-hidden border-2 border-black">
+                                <div
+                                    className="h-full bg-gradient-to-r from-[#fef3dc] to-[#c2a770] rounded-full transition-all duration-500"
+                                    style={{ width: `${project.progress}%` }}
+                                />
+                            </div>
+                        </div>
+                    )}
 
-                    {/* Features */}
-                    <div className="mb-8">
-                        <h3 className="font-[SansitaBold] text-2xl mb-4">Key Features</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            {project.features.map((feature, i) => (
-                                <div key={i} className="flex items-center gap-3">
-                                    <span className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-sm">✓</span>
-                                    <span className="font-[Sansita]">{feature}</span>
+                    {/* Metrics or Budget */}
+                    {project.metrics ? (
+                        <div className="grid grid-cols-3 gap-4 mb-8">
+                            {Object.entries(project.metrics).map(([key, value], i) => (
+                                <div key={i} className="bg-[#fef3dc] p-4 rounded-xl text-center border-2 border-black">
+                                    <p className="font-[SansitaBold] text-xl">{value}</p>
+                                    <p className="font-[Sansita] text-sm text-gray-600 capitalize">{key}</p>
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    ) : (
+                        <div className="grid grid-cols-2 gap-4 mb-8">
+                            <div className="bg-[#fef3dc] p-4 rounded-xl text-center border-2 border-black">
+                                <p className="font-[SansitaBold] text-xl">{project.budget || 'TBD'}</p>
+                                <p className="font-[Sansita] text-sm text-gray-600">Budget</p>
+                            </div>
+                            <div className="bg-[#fef3dc] p-4 rounded-xl text-center border-2 border-black">
+                                <p className="font-[SansitaBold] text-xl">{project.duration || 'TBD'}</p>
+                                <p className="font-[Sansita] text-sm text-gray-600">Duration</p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Team */}
+                    {project.team && project.team.length > 0 && (
+                        <div className="mb-8">
+                            <h3 className="font-[SansitaBold] text-2xl mb-4">Team</h3>
+                            <div className="flex flex-wrap gap-3">
+                                {project.team.map((member, i) => (
+                                    <span key={i} className="font-[Sansita] px-4 py-2 bg-black text-white rounded-full">
+                                        {member}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Features */}
+                    {project.features && project.features.length > 0 && (
+                        <div className="mb-8">
+                            <h3 className="font-[SansitaBold] text-2xl mb-4">Key Features</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {project.features.map((feature, i) => (
+                                    <div key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-sm">✓</span>
+                                        <span className="font-[Sansita]">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Tech Stack */}
-                    <div className="mb-8">
-                        <h3 className="font-[SansitaBold] text-2xl mb-4">Tech Stack</h3>
-                        <div className="flex flex-wrap gap-3">
-                            {project.tech.map((t, i) => (
-                                <span key={i} className="font-[Sansita] px-4 py-2 bg-gray-100 rounded-full border border-gray-300">
-                                    {t}
-                                </span>
-                            ))}
+                    {project.tech && project.tech.length > 0 && (
+                        <div className="mb-8">
+                            <h3 className="font-[SansitaBold] text-2xl mb-4">Tech Stack</h3>
+                            <div className="flex flex-wrap gap-3">
+                                {project.tech.map((t, i) => (
+                                    <span key={i} className="font-[Sansita] px-4 py-2 bg-gray-100 rounded-full border border-gray-300">
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
+
+                    {/* Links */}
+                    {project.links && Object.keys(project.links).length > 0 && (
+                        <div className="mb-8">
+                            <h3 className="font-[SansitaBold] text-2xl mb-4">Links</h3>
+                            <div className="flex flex-wrap gap-3">
+                                {Object.entries(project.links).map(([key, url], i) => (
+                                    <a
+                                        key={i}
+                                        href={url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="font-[Sansita] px-4 py-2 bg-[#fef3dc] rounded-full border-2 border-black hover:bg-black hover:text-white transition-colors capitalize"
+                                    >
+                                        {key === 'github' ? '🔗 GitHub' :
+                                         key === 'website' ? '🌐 Website' :
+                                         key === 'docs' ? '📚 Docs' :
+                                         key === 'demo' ? '🎬 Demo' : key}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* CTA */}
                     <div className="flex gap-4">
-                        <button className="flex-1 font-[SansitaBold] bg-black text-white py-4 rounded-xl hover:bg-gray-800 transition-colors">
-                            Learn More
-                        </button>
+                        {project.links?.website || project.links?.github ? (
+                            <a
+                                href={project.links?.website || project.links?.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 font-[SansitaBold] bg-black text-white py-4 rounded-xl hover:bg-gray-800 transition-colors text-center"
+                            >
+                                Visit Project
+                            </a>
+                        ) : (
+                            <button className="flex-1 font-[SansitaBold] bg-gray-400 text-white py-4 rounded-xl cursor-not-allowed">
+                                Coming Soon
+                            </button>
+                        )}
                         <button
                             onClick={handleClose}
                             className="flex-1 font-[SansitaBold] bg-[#fef3dc] text-black py-4 rounded-xl border-2 border-black hover:bg-[#e6d9b8] transition-colors"

@@ -53,41 +53,38 @@ gsap.registerPlugin(ScrollTrigger);
             </div>
         </div>
         <div className=" right font-[SansitaReg] mt-10 sm:w-2/3 space-y-10 h-full sm:flex items-start justify-start sm:gap-20  ">
-            {/* 1st capsule */}
-            <div   
+            {/* 1st capsule - zkλ (zk-lokomotive) */}
+            <div
                 className="capsule flex flex-col items-center gap-4 p-6 sm:-rotate-[16deg] sm:translate-y-10
                 rounded-full border-[1px] border-black">
                 <div className="image w-[74vw] h-[74vw] sm:w-[40vh] sm:h-[40vh]  rounded-full overflow-hidden">
                     <img className="h-full w-full object-cover" src={cap1} />
                 </div>
                 <div className="text text-center text-[6vw] sm:text-[3.2vh] font-semibold mt-10 leading-[4.8vh]">
-                    <h3>Wiener Labs Arbitrage: <br/>
-                        Advanced DeFi Trading <br/> System on Solana <br/>with High-Speed <br/> Arbitrage Execution
+                    <h3>zkλ (zk-lokomotive): <br/>
+                        Secure & Anonymous <br/> File Transfer with <br/>Zero-Knowledge <br/> Encryption
                     </h3>
                 </div>
-                <button className="bg-[#fef3dc] text-black px-4 rounded-full text-medium py-3 mb-10 mt-10 font-semibold border border-black">Thought Leadership</button>
-
+                <span className="bg-green-500 text-white px-4 rounded-full text-medium py-3 mb-10 mt-10 font-semibold">Launched ✓</span>
             </div>
-            {/* 2nd capsule */}
-            <div   
+            {/* 2nd capsule - Paralyx */}
+            <div
                 className="capsule flex flex-col items-center gap-4 p-6 sm:-rotate-[16deg] sm:translate-y-40
                 rounded-full border-[1px] border-black"
             >
-                    <button className="bg-[#fef3dc] text-black px-4 rounded-full text-medium py-3 mb-6 mt-10 font-semibold border border-black">Thought Leadership</button>
-                
+                    <span className="bg-blue-500 text-white px-4 rounded-full text-medium py-3 mb-6 mt-10 font-semibold">Testnet Launch</span>
+
                 <div className="text text-center text-[3.2vh] flex flex-col gap-6 mb-6 font-semibold leading-[4.8vh]">
-                    <h3>How to Use Digital <br/>
-                        Health Interventions&apos;s <br/>to Align Employee & <br/>Organizational Goals
+                    <h3>Paralyx Protocol: <br/>
+                        Cross-Chain RWA <br/>Tokenization & <br/>Omnichain Bridge
                     </h3>
-                    <h4 className="font-[Sansita] text-[1.9vh] font-medium leading-[2.8vh] text-zinc-500">How to use personalized digital health <br/> interventions to empower employees while <br/>
-                        achieving your organization&apos;s goals 
+                    <h4 className="font-[Sansita] text-[1.9vh] font-medium leading-[2.8vh] text-zinc-500">Real World Assets meet <br/> blockchain technology with <br/>
+                        seamless cross-chain transfers
                     </h4>
                 </div>
                 <div className="image w-[74vw] h-[74vw] sm:w-[40vh] sm:h-[40vh]  rounded-full overflow-hidden">
                     <img className="h-full w-full object-cover" src={cap2} />
                 </div>
-                
-
             </div>
         </div>
 

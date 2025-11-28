@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import styles from './Style.module.css';
 import { LuArrowUpRight } from "react-icons/lu";
 import Button from  '../Button'
@@ -11,8 +11,7 @@ function Footer() {
           <div className="first order-1 font-[SansitaReg]  text-[6vh] leading-[7vh] sm:text-[4.2rem] w-1/3 sm:leading-[5rem] sm:mb-10 ">
             <h1>Discover Wiener Labs.</h1>
           </div>
-          {/* <Bu/> */}
-          <div className='middle order-3 sm:order-2 w-[20vh] text-center mt-6 px-4 py-4 sm:w-fit sm:px-4 sm:py-[1.6vh] bg-[--black] text-[#fef3dc] whitespace-nowrap'>
+          <Link to="/projects" className='middle order-3 sm:order-2 w-[20vh] text-center mt-6 px-4 py-4 sm:w-fit sm:px-4 sm:py-[1.6vh] bg-[--black] text-[#fef3dc] whitespace-nowrap inline-block'>
             <div 
               className= {`${styles.masker} flex items-center 
               gap-2 overflow-hidden 
@@ -23,7 +22,7 @@ function Footer() {
                 text-[2.1vh] capitalize tracking-normal 
                 font-semibold `}
               >
-                LET&apos;S GO
+                VIEW PROJECTS
               </span>
               <LuArrowUpRight 
                 style={{
@@ -33,15 +32,16 @@ function Footer() {
                 className={`${styles.iconMask}`} 
               /> 
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className="right order-2 sm:order-3  flex sm:w-1/2 items-center justify-between sm:px-10">
           <div className="rght1 sm:w-2/3 flex flex-col items-end px-8 mt-6">
             <h3 className="text-[2.4vh] sm:text-[1.4rem] font-[Sansita] font-medium">
-              Find out how Significo’s people-centered
-              designs can make health technology more
-              empowering.
+              Wiener Labs is a technology company 
+              operating under a software laboratory model 
+              that enables the integration of Real World Assets (RWAs) into blockchain infrastructure. 
+              We develop tokenization infrastructures, decentralized finance (DeFi) protocols, and AI-powered automation tools.
             </h3>
           </div>
           <div className="hidden sm:inline-block rght2 relative w-[150px] h-[150px]  overflow: hidden;">
@@ -105,12 +105,25 @@ function Footer() {
           </div>
           <div className=' hidden sm:inline-block '>
             {[
-              { name: "Projects", target: "projects" },
+              { name: "Projects", target: null, isLink: true, to: "/projects" },
               { name: "Newsroom", target: null },
               { name: "Resources", target: null },
               { name: "Careers", target: null },
               { name: "Contact", target: "contact" }
             ].map((item, index) => {
+              if (item.isLink) {
+                return (
+                  <Link
+                    key={index}
+                    to={item.to}
+                    className='block pb-4 cursor-pointer hover:opacity-70 transition-opacity'
+                  >
+                    <h3 className='font-[SansitaReg] text-[2.5vh] text-white font-semibold'>
+                      {item.name}
+                    </h3>
+                  </Link>
+                )
+              }
               return (
                 <div
                   key={index}
