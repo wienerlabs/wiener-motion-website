@@ -1,5 +1,6 @@
 import Button from "../Button";
 import {useRef} from 'react';
+import { Link } from 'react-router-dom';
 import cap1 from '../../assets/images/cap1.png';
 import cap2 from '../../assets/images/cap2.jpg';
 import norbertWiener from '../../assets/images/norbert-wiener.jpg';
@@ -46,7 +47,9 @@ gsap.registerPlugin(ScrollTrigger);
             </h1>
             <div className="heading">
                 <h1 className="font-[SansitaReg] text-[5vh] leading-[6.5vh] sm:text-[8vh] py-5 sm:leading-[9vh]">Explore <br/> Our Projects</h1>
-                <Button bgColor="bg-[#fef3dc]" text="VIEW ALL PROJECTS" />
+                <Link to="/projects">
+                    <Button bgColor="bg-[#fef3dc]" text="VIEW ALL PROJECTS" />
+                </Link>
             </div>
         </div>
         <div className=" right font-[SansitaReg] mt-10 sm:w-2/3 space-y-10 h-full sm:flex items-start justify-start sm:gap-20  ">

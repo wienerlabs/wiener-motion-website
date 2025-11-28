@@ -36,7 +36,15 @@ function TeamFullPage({ onClose }) {
                                     className="team-card bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group cursor-pointer"
                                 >
                                     <div className="relative h-64 overflow-hidden bg-gray-100">
-                                        <img src={member.img} alt={member.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                        {member.img ? (
+                                            <img src={member.img} alt={member.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                        ) : (
+                                            <div className="w-full h-full bg-gradient-to-br from-[#fef3dc] to-[#d4c4a8] flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                                <span className="text-5xl font-[SansitaBold] text-[#3d3a2f]">
+                                                    {member.title.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                                                </span>
+                                            </div>
+                                        )}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     </div>
                                     <div className="p-6">

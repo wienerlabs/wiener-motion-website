@@ -80,13 +80,19 @@ function MemberProfile({ member, onClose }) {
                             const finalRepos = [...featuredRepos, ...otherTopRepos].slice(0, 6);
 
                             // Fetch activity
-                            const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=10`);
-                            const eventsData = await eventsResponse.json();
+                            let eventsData = [];
+                            try {
+                                const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=10`);
+                                const eventsJson = await eventsResponse.json();
+                                eventsData = Array.isArray(eventsJson) ? eventsJson : [];
+                            } catch (e) {
+                                console.error(`Error fetching events for ${username}:`, e);
+                            }
 
                             return {
                                 username,
-                                data: userData,
-                                repos: finalRepos,
+                                data: userData || {},
+                                repos: finalRepos || [],
                                 activity: eventsData
                             };
                         } catch (error) {
@@ -161,7 +167,15 @@ function MemberProfile({ member, onClose }) {
                         <div className="lg:col-span-1">
                             <div className="sticky top-8">
                                 <div className="relative w-full aspect-square rounded-full overflow-hidden border-4 border-black shadow-2xl mb-6">
-                                    <img src={member.img} alt={member.title} className="w-full h-full object-cover object-center" />
+                                    {member.img ? (
+                                        <img src={member.img} alt={member.title} className="w-full h-full object-cover object-center" />
+                                    ) : (
+                                        <div className="w-full h-full bg-gradient-to-br from-[#fef3dc] to-[#d4c4a8] flex items-center justify-center">
+                                            <span className="text-6xl font-[SansitaBold] text-[#3d3a2f]">
+                                                {member.title.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                                            </span>
+                                        </div>
+                                    )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                 </div>
                                 <h1 className="font-[SansitaBold] text-4xl sm:text-5xl mb-3">{member.title}</h1>
@@ -292,44 +306,46 @@ function MemberProfile({ member, onClose }) {
 
                                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                                         <div className="bg-[#fef3dc] p-4 rounded-lg border-2 border-black text-center">
-                                            <p className="font-[SansitaBold] text-3xl">{account.data.public_repos || 0}</p>
+                                            <p className="font-[SansitaBold] text-3xl">{account.data?.public_repos || 0}</p>
                                             <p className="font-[Sansita] text-sm text-gray-700">Repositories</p>
                                         </div>
                                         <div className="bg-[#fef3dc] p-4 rounded-lg border-2 border-black text-center">
-                                            <p className="font-[SansitaBold] text-3xl">{account.data.followers || 0}</p>
+                                            <p className="font-[SansitaBold] text-3xl">{account.data?.followers || 0}</p>
                                             <p className="font-[Sansita] text-sm text-gray-700">Followers</p>
                                         </div>
                                         <div className="bg-[#fef3dc] p-4 rounded-lg border-2 border-black text-center">
-                                            <p className="font-[SansitaBold] text-3xl">{account.data.following || 0}</p>
+                                            <p className="font-[SansitaBold] text-3xl">{account.data?.following || 0}</p>
                                             <p className="font-[Sansita] text-sm text-gray-700">Following</p>
                                         </div>
                                         <div className="bg-[#fef3dc] p-4 rounded-lg border-2 border-black text-center">
-                                            <p className="font-[SansitaBold] text-3xl">{account.data.public_gists || 0}</p>
+                                            <p className="font-[SansitaBold] text-3xl">{account.data?.public_gists || 0}</p>
                                             <p className="font-[Sansita] text-sm text-gray-700">Gists</p>
                                         </div>
                                     </div>
 
-                                    <div className="mb-6">
-                                        <h3 className="font-[SansitaBold] text-2xl mb-4">Contribution Activity</h3>
-                                        <div className="bg-white p-6 rounded-lg border-2 border-black overflow-x-auto">
-                                            <GitHubCalendar
-                                                username={account.username}
-                                                blockSize={12}
-                                                blockMargin={4}
-                                                fontSize={14}
-                                                colorScheme="light"
-                                                theme={{
-                                                    light: ['#f0f0f0', '#fef3dc', '#e6d9b8', '#d4c094', '#c2a770'],
-                                                    dark: ['#f0f0f0', '#fef3dc', '#e6d9b8', '#d4c094', '#c2a770']
-                                                }}
-                                                style={{
-                                                    fontFamily: 'Sansita, sans-serif'
-                                                }}
-                                            />
+                                    {account.username && (
+                                        <div className="mb-6">
+                                            <h3 className="font-[SansitaBold] text-2xl mb-4">Contribution Activity</h3>
+                                            <div className="bg-white p-6 rounded-lg border-2 border-black overflow-x-auto">
+                                                <GitHubCalendar
+                                                    username={account.username}
+                                                    blockSize={12}
+                                                    blockMargin={4}
+                                                    fontSize={14}
+                                                    colorScheme="light"
+                                                    theme={{
+                                                        light: ['#f0f0f0', '#fef3dc', '#e6d9b8', '#d4c094', '#c2a770'],
+                                                        dark: ['#f0f0f0', '#fef3dc', '#e6d9b8', '#d4c094', '#c2a770']
+                                                    }}
+                                                    style={{
+                                                        fontFamily: 'Sansita, sans-serif'
+                                                    }}
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
 
-                                    {account.repos.length > 0 && (
+                                    {account.repos && account.repos.length > 0 && (
                                         <div className="mb-6">
                                             <h3 className="font-[SansitaBold] text-2xl mb-4">
                                                 {accountIndex === 0 && member.featuredRepos ? 'Featured & Top Repositories' : 'Top Repositories'}
@@ -379,7 +395,7 @@ function MemberProfile({ member, onClose }) {
                                         </div>
                                     )}
 
-                                    {account.activity.length > 0 && (
+                                    {account.activity && account.activity.length > 0 && (
                                         <div>
                                             <h3 className="font-[SansitaBold] text-2xl mb-4">Recent Activity</h3>
                                             <div className="space-y-3">

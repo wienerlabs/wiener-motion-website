@@ -292,7 +292,7 @@ export const teamData = [
         role: "Firmware Developer",
         img: img13,
         github: "gAtrium",
-        spotifyTrackId: "7MXVkk9YMctZqd1Srtv4MB", // Stargazing - Travis Scott
+        spotifyTrackId: "7MXVkk9YMctZqd1Srtv4MB",
         bio: "Hardware integration specialist developing firmware for IoT and blockchain-connected devices. Expert in embedded systems.",
         expertise: ["Embedded Systems", "IoT", "Hardware Integration", "C/C++", "RTOS", "Blockchain Hardware"],
         achievements: [
@@ -308,6 +308,135 @@ export const teamData = [
             { name: "Blockchain Hardware Wallet", role: "Firmware Lead", tech: ["C", "ARM", "Secure Element"] },
             { name: "IoT Sensor Network", role: "Embedded Engineer", tech: ["C++", "MQTT", "ESP32"] }
         ]
+    },
+    {
+        key: 13,
+        id: "burak-artun",
+        title: "Burak Artun",
+        role: "Software Developer",
+        img: "https://github.com/MrShiroLu.png",
+        github: "MrShiroLu",
+        spotifyTrackId: "0VjIjW4GlUZAMYd2vXMi3b",
+        bio: "Full-stack developer with expertise in modern web technologies and blockchain integration.",
+        expertise: ["Full-Stack Development", "Web3", "JavaScript", "Node.js", "React"],
+        achievements: [
+            "Contributed to multiple open source projects",
+            "Built scalable web applications",
+            "Expert in modern JavaScript frameworks"
+        ],
+        education: "BSc Computer Science",
+        location: "Istanbul, Turkey",
+        languages: ["Turkish", "English"],
+        projects: [
+            { name: "Web3 DApp", role: "Full-Stack Developer", tech: ["React", "Node.js", "Solidity"] }
+        ]
+    },
+    {
+        key: 14,
+        id: "bilal-erkam-kilinc",
+        title: "Bilal Erkam Kilinc",
+        role: "Software Developer",
+        img: "https://github.com/B-erkamklnc.png",
+        github: "B-erkamklnc",
+        spotifyTrackId: "7qiZfU4dY1lWllzX7mPBI3",
+        bio: "Software developer focused on building robust and scalable applications.",
+        expertise: ["Software Development", "Backend Systems", "Database Design", "API Development"],
+        achievements: [
+            "Developed enterprise-level applications",
+            "Expert in system architecture",
+            "Database optimization specialist"
+        ],
+        education: "BSc Software Engineering",
+        location: "Istanbul, Turkey",
+        languages: ["Turkish", "English"],
+        projects: [
+            { name: "Enterprise Backend", role: "Backend Developer", tech: ["Node.js", "PostgreSQL", "Redis"] }
+        ]
+    },
+    {
+        key: 15,
+        id: "fahad",
+        title: "Fahad",
+        role: "Software Engineer",
+        img: "https://github.com/me-imfhd.png",
+        github: "me-imfhd",
+        spotifyTrackId: "4cOdK2wGLETKBW3PvgPWqT",
+        bio: "Software engineer with deep expertise in system design and scalable architecture.",
+        expertise: ["System Design", "Distributed Systems", "Rust", "Go", "Cloud Architecture"],
+        achievements: [
+            "Built high-performance distributed systems",
+            "Expert in Rust and Go",
+            "Cloud infrastructure specialist"
+        ],
+        education: "BSc Computer Engineering",
+        location: "Remote",
+        languages: ["English"],
+        projects: [
+            { name: "Distributed System", role: "Software Engineer", tech: ["Rust", "Go", "Kubernetes"] }
+        ]
+    },
+    {
+        key: 16,
+        id: "serdar-soydemir",
+        title: "Serdar Soydemir",
+        role: "Developer",
+        img: "https://github.com/Serdarsoydem.png",
+        github: "Serdarsoydem",
+        spotifyTrackId: "2HbKqm4o0w5wEeEFXm2sD4",
+        bio: "Developer passionate about creating innovative solutions and clean code.",
+        expertise: ["Software Development", "Web Technologies", "Problem Solving"],
+        achievements: [
+            "Built multiple successful projects",
+            "Clean code advocate",
+            "Active open source contributor"
+        ],
+        education: "BSc Computer Science",
+        location: "Istanbul, Turkey",
+        languages: ["Turkish", "English"],
+        projects: [
+            { name: "Web Platform", role: "Developer", tech: ["JavaScript", "React", "Node.js"] }
+        ]
+    },
+    {
+        key: 17,
+        id: "giray-altug-korkmaz",
+        title: "Giray Altug Korkmaz",
+        role: "Developer",
+        img: "https://github.com/GirayKorkmaz.png",
+        github: "GirayKorkmaz",
+        spotifyTrackId: "3n3Ppam7vgaVa1iaRUc9Lp",
+        bio: "Developer with strong problem-solving skills and passion for technology.",
+        expertise: ["Software Development", "Web Development", "Mobile Development"],
+        achievements: [
+            "Developed cross-platform applications",
+            "Full-stack development expertise",
+            "Technology enthusiast"
+        ],
+        education: "BSc Computer Engineering",
+        location: "Istanbul, Turkey",
+        languages: ["Turkish", "English"],
+        projects: [
+            { name: "Cross-Platform App", role: "Developer", tech: ["React Native", "Node.js", "Firebase"] }
+        ]
+    },
+    {
+        key: 18,
+        id: "zilxbt",
+        title: "Zilxbt",
+        role: "Developer",
+        img: "https://github.com/DopeCrewFriends.png",
+        github: "DopeCrewFriends",
+        spotifyTrackId: "2LBqCSwhJGcFQeTHMVGwy3",
+        bio: "Developer contributing to blockchain and Web3 projects.",
+        expertise: ["Blockchain", "Web3", "Development"],
+        achievements: [
+            "Web3 enthusiast",
+            "Blockchain developer"
+        ],
+        education: "Computer Science",
+        location: "Remote",
+        languages: ["English"],
+        projects: []
     }
 ];
 

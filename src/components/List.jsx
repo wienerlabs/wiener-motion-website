@@ -85,7 +85,15 @@ function List({ onMemberClick }) {
                 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:w-[15rem] sm:h-[15rem]
                 overflow-hidden rounded-full'
               >
-                <img src={item.img} className='w-[100%] h-[100%] object-contain' />
+                {item.img ? (
+                  <img src={item.img} className='w-[100%] h-[100%] object-contain' />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#fef3dc] to-[#d4c4a8] flex items-center justify-center">
+                    <span className="text-3xl sm:text-5xl font-[SansitaBold] text-[#3d3a2f]">
+                      {item.title.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="hidden sm:inline-block bluelayer sm:absolute top-0 left-0 z-[2] w-full h-0 bg-[#fef3dc]"></div>
             </div>
