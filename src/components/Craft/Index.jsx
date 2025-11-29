@@ -1,7 +1,7 @@
-
 import Card from "../Card";
 import Button from "../Button";
-import {useRef, useEffect, useState} from 'react';
+import {useRef, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -99,8 +99,9 @@ function Craft() {
                 enabling fractional ownership, 24/7 trading, and smart contract automation.
             </p>
             <h1 className="texthead font-[SansitaReg] text-[4.5vh] leading-[5.5vh] sm:text-[8.5vh] sm:leading-[10vh] mt-10 mb-10">We Build Web3 RWA Tokenization Solutions</h1>
-            {/* button */}
-            <Button  bgColor="bg-none" text="OUR SERVICES" />
+            <Link to="/projects">
+                <Button bgColor="bg-none" text="OUR SERVICES" />
+            </Link>
         </div>
         <div
             ref={container} 

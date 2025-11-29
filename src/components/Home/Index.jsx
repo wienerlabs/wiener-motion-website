@@ -7,16 +7,17 @@ import styles from './Style.module.css';
 import { Power2, Power4 } from 'gsap/gsap-core';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
-// import { AiOutlineMenu } from "react-icons/ai";
-import { BiMenu } from "react-icons/bi";
+import { BiMenu, BiX } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.set(".slidesm", {scale: 5})
 
 function Home() {
-
+    const navigate = useNavigate();
     const container = useRef(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         var clutter = "";
@@ -109,18 +110,22 @@ function Home() {
                     </div>
                     <div className="hidden md:flex gap-2 items-center z-[9] cursor-pointer ">
                         {[
-                            { name: "Services", target: "services" },
-                            { name: "About", target: "about" },
-                            { name: "Projects", target: "projects" },
-                            { name: "Team", target: "team" },
-                            { name: "Contact", target: "contact" }
+                            { name: "Services", target: "services", isPage: false },
+                            { name: "About", target: "about", isPage: false },
+                            { name: "Projects", target: "/projects", isPage: true },
+                            { name: "Team", target: "team", isPage: false },
+                            { name: "Contact", target: "contact", isPage: false }
                         ].map((item, index) => (
                             <h4
                                 key={index}
                                 onClick={() => {
-                                    const element = document.getElementById(item.target);
-                                    if (element) {
-                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    if (item.isPage) {
+                                        navigate(item.target);
+                                    } else {
+                                        const element = document.getElementById(item.target);
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
                                     }
                                 }}
                                 className={`${styles.links} h-[3vh] relative py[2.4vh] px-[2.2vh] text-center flex flex-col
@@ -131,18 +136,67 @@ function Home() {
                             </h4>
                         ))}
                     </div>
-                    
-                        <BiMenu
-                            style={{
-                            
-                            fontSize: "5.5vw",
-                            }}
-                            className=' inline-block sm:hidden z-[9] cursor-pointer'
-                        />  
-                 
-                    
+
+                    {/* Mobile Menu Toggle */}
+                    <div className="sm:hidden z-[9]">
+                        {mobileMenuOpen ? (
+                            <BiX
+                                onClick={() => setMobileMenuOpen(false)}
+                                style={{ fontSize: "7vw" }}
+                                className="cursor-pointer"
+                            />
+                        ) : (
+                            <BiMenu
+                                onClick={() => setMobileMenuOpen(true)}
+                                style={{ fontSize: "5.5vw" }}
+                                className="cursor-pointer"
+                            />
+                        )}
+                    </div>
                 </div>
             </motion.div>
+
+            {/* Mobile Menu Overlay */}
+            {mobileMenuOpen && (
+                <motion.div
+                    initial={{ opacity: 0, x: "100%" }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: "100%" }}
+                    transition={{ duration: 0.3 }}
+                    className="fixed inset-0 z-[8] bg-black/95 flex flex-col items-center justify-center sm:hidden"
+                >
+                    {[
+                        { name: "Services", target: "services", isPage: false },
+                        { name: "About", target: "about", isPage: false },
+                        { name: "Projects", target: "/projects", isPage: true },
+                        { name: "Team", target: "team", isPage: false },
+                        { name: "Contact", target: "contact", isPage: false }
+                    ].map((item, index) => (
+                        <motion.button
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            onClick={() => {
+                                setMobileMenuOpen(false);
+                                if (item.isPage) {
+                                    navigate(item.target);
+                                } else {
+                                    setTimeout(() => {
+                                        const element = document.getElementById(item.target);
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }, 300);
+                                }
+                            }}
+                            className="font-[SansitaBold] text-white text-4xl py-4 hover:text-[#fef3dc] transition-colors"
+                        >
+                            {item.name}
+                        </motion.button>
+                    ))}
+                </motion.div>
+            )}
 
             <div className='btmtext absolute z-[4] bottom-[4%] left-[25%] text-center sm:text-start sm:bottom-[7%] sm:left-8 w-48 '>
                 <h1 className='sm:text-[2vh] font-semibold'>

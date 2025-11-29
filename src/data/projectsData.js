@@ -1,6 +1,19 @@
 import cap1 from '../assets/images/cap1.png';
 import cap2 from '../assets/images/cap2.jpg';
 
+// Project-specific images
+import zkLokomotiveImg from '../assets/images/zkλ (zk-lokomotive).png';
+import paralyxImg from '../assets/images/Paralyx.png';
+import definiteImg from '../assets/images/Definite.png';
+import keyraImg from '../assets/images/Keyra.png';
+import bytrosImg from '../assets/images/Bytros.png';
+import danteGPUImg from '../assets/images/DanteGPU.png';
+import omnisphereImg from '../assets/images/Omnisphere.png';
+import ursusImg from '../assets/images/Ursus.png';
+import synapseImg from '../assets/images/Synapse.png';
+import quantlinkImg from '../assets/images/Quantlink.png';
+import swayImg from '../assets/images/Sway.png';
+
 export const projectsData = [
     // ===== FLAGSHIP PROJECTS (Detailed) =====
     {
@@ -8,7 +21,7 @@ export const projectsData = [
         title: "zkλ (zk-lokomotive)",
         subtitle: "Secure & Anonymous File Transfer and Decentralized Data Storage Hub",
         description: "A privacy-focused platform providing secure and anonymous file transfer capabilities with decentralized data storage. Built with zero-knowledge proofs for maximum security and privacy.",
-        image: cap1,
+        image: zkLokomotiveImg,
         category: "Security",
         status: "Launched",
         priority: "A",
@@ -38,7 +51,7 @@ export const projectsData = [
         title: "Paralyx",
         subtitle: "Cross-Chain Lending Protocol Bridging Ethereum LSDs to Stellar",
         description: "A decentralized cross-chain lending protocol that bridges Ethereum's Liquid Staking Derivatives (LSDs) to Stellar's high-speed, low-cost infrastructure. Enabling seamless DeFi operations across chains.",
-        image: cap2,
+        image: paralyxImg,
         category: "DeFi",
         status: "Testnet",
         priority: "B",
@@ -67,7 +80,7 @@ export const projectsData = [
         title: "Definite Protocol",
         subtitle: "Delta-Neutral Hedge Investment System",
         description: "Advanced delta-neutral hedge investment system operating across multiple chains including Stacks, Starknet, Algorand, and Hyperliquid. Sophisticated risk management for institutional-grade returns.",
-        image: cap1,
+        image: definiteImg,
         category: "DeFi",
         status: "Testnet",
         priority: "S",
@@ -95,7 +108,7 @@ export const projectsData = [
         title: "Keyra",
         subtitle: "Privacy-First Decentralized Password Manager",
         description: "KEYRA is a secure, privacy-focused password manager utilizing decentralized storage and Zero-Knowledge Proofs. Your passwords never leave your device unencrypted.",
-        image: cap2,
+        image: keyraImg,
         category: "Consumer App",
         status: "Testnet",
         priority: "A",
@@ -123,7 +136,7 @@ export const projectsData = [
         title: "Bytros",
         subtitle: "Perpetual Trading with tBTC Collateral on Starknet",
         description: "Trade perpetual futures using tBTC as collateral without bridging, KYC, or centralized exchanges. Enjoy gasless transactions with AVNU Paymaster and access 50+ markets via Extended Protocol.",
-        image: cap1,
+        image: bytrosImg,
         category: "BTCFi",
         status: "Testnet",
         priority: "A",
@@ -152,7 +165,7 @@ export const projectsData = [
         title: "DanteGPU",
         subtitle: "Distributed GPU Computing for AI Agents on Solana",
         description: "DanteGPU is a platform enabling AI agents to efficiently utilize distributed GPU resources through the Solana blockchain. Democratizing access to computational power for AI development.",
-        image: cap2,
+        image: danteGPUImg,
         category: "Infrastructure",
         status: "Demo",
         priority: "S",
@@ -180,7 +193,7 @@ export const projectsData = [
         title: "Omnisphere",
         subtitle: "Cross-Chain Liquidity Protocol with Atomic Composition",
         description: "A revolutionary cross-chain liquidity protocol enabling atomic composition of liquidity across multiple blockchain networks. Unified liquidity for the multi-chain future.",
-        image: cap1,
+        image: omnisphereImg,
         category: "DeFi",
         status: "Development",
         priority: "B",
@@ -475,7 +488,7 @@ export const projectsData = [
         title: "UrsusAI",
         subtitle: "AI-Powered Trading Analytics",
         description: "Machine learning platform for trading analytics and market predictions.",
-        image: cap1,
+        image: ursusImg,
         category: "AI",
         status: "Development",
         progress: 30,
@@ -544,7 +557,7 @@ export const projectsData = [
         title: "Sway",
         subtitle: "Smart Contract Development Tool",
         description: "Developer tools for Fuel blockchain smart contract development.",
-        image: cap2,
+        image: swayImg,
         category: "Tools",
         status: "Development",
         progress: 30,
@@ -624,7 +637,7 @@ export const projectsData = [
         title: "Synapse",
         subtitle: "Web3 Social Platform",
         description: "Decentralized social networking platform with token incentives.",
-        image: cap2,
+        image: synapseImg,
         category: "Consumer App",
         status: "Development",
         progress: 20,
@@ -691,7 +704,7 @@ export const projectsData = [
         title: "Quantlink",
         subtitle: "Quantitative Analysis Tools",
         description: "Quantitative analysis and backtesting tools for crypto trading.",
-        image: cap1,
+        image: quantlinkImg,
         category: "Education",
         status: "Development",
         progress: 20,
